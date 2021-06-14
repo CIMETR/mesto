@@ -20,7 +20,7 @@
 
 ---
 
-[Ссылка на проект]()
+[Ссылка на проект](https://cimetr.github.io/mesto/index.html)
 
 ---
 
