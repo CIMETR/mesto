@@ -1,0 +1,22 @@
+.popup__case {
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 430px;
+  position: relative;
+  width: 100%;
+}
+
+
+@media screen and (max-width: 475px){
+  .popup__case {
+      max-width: 343px;
+      min-height: 345px;
+  }
+}
+
+@media screen and (max-width: 320px){
+  .popup__case {
+    max-width: 282px;
+  }
+
+}

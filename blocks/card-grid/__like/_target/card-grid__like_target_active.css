@@ -1,0 +1,12 @@
+.card-grid__like_target_active{
+  background-color: transparent;
+  background-image: url('../../../../images/blackserd.svg');
+  border: none;
+  height: 19px;
+  outline: none;
+  padding: 0;
+  transition: .8s;
+  width: 22px;
+  cursor: pointer;
+  box-sizing: border-box;
+}

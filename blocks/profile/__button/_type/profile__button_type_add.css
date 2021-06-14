@@ -1,0 +1,19 @@
+.profile__button_type_add {
+  background-image: url('../../../../images/addImage.svg');
+  border: 2px solid #fff;
+  border-radius: 2px;
+  min-height: 50px;
+  width: 150px;
+  box-sizing: border-box;
+}
+
+.profile__button_type_add:hover{
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 620px) {
+  .profile__button_type_add{
+    max-width: 282px;
+    width: 100%;
+  }
+}

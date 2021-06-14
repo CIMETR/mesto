@@ -1,0 +1,9 @@
+.page {
+  margin: 0 auto;
+  max-width: 880px;
+  background-color: #000;
+  font-family: Inter,sans-serif;
+  color: #fff;
+  text-rendering: optimizeLegibility;
+  box-sizing: content-box;
+}

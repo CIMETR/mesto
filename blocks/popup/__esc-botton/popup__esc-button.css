@@ -1,0 +1,30 @@
+.popup__esc-button {
+  background-color: transparent;
+  background-image: url('../../../images/addImage.svg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  display: flex;
+  height: 40px;
+  outline: none;
+  padding: 0;
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  transform: rotate(45deg);
+  transition: .2s;
+  width: 40px;
+}
+
+.popup__esc-button:hover{
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 620px){
+  .popup__esc-button {
+    right: 0;
+    top: -50px;
+  }
+}

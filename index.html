@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+
+<body class="page">
+  <header class="header">
+    <img src="./images/Vector.svg" alt="логотип сайта Место" class="header__logo">
+  </header>
+
+  <main class="content">
+    <section class="profile">
+      <img src="./images/image.jpg" alt="жак ив кусто" class="profile__logo">
+      <div class="profile__info">
+        <div class="profile__info-name">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__button profile__button_type_edit" title="Редактировать профиль"
+            aria-label="Редактировать профиль"></button>
+        </div>
+        <p class="profile__job">Исследователь океана</p>
+      </div>
+      <button class="profile__button profile__button_type_add" title="Добавить фото"
+        aria-label="Добавить фото"></button>
+    </section>
+
+    <section class="cards-grid">
+      <ul class="card-grid">
+        <li class="card-grid__item">
+          <img src="./images/IMG_0665.JPG" alt="ойр следит за солнечным зайчиком" class="card-grid__image">
+          <div class="card-grid__info">
+            <h2 class="card-grid__title">Йоркширский терьер</h2>
+            <button class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
+          </div>
+        </li>
+        <li class="card-grid__item">
+          <img src="./images/IMG_0666.JPG" alt="ойорк стоит на дорожке и смотрит в сторону" class="card-grid__image">
+          <div class="card-grid__info">
+            <h2 class="card-grid__title">Йоркширский терьер</h2>
+            <button class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
+          </div>
+        </li>
+        <li class="card-grid__item">
+          <img src="./images/IMG_0667.JPG" alt="ойрк грызет резиноывый мяч" class="card-grid__image">
+          <div class="card-grid__info">
+            <h2 class="card-grid__title">Йоркширский терьер</h2>
+            <button class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
+          </div>
+        </li>
+        <li class="card-grid__item">
+          <img src="./images/IMG_7379.JPEG" alt="котик спрятался в свернутом матрасе" class="card-grid__image">
+          <div class="card-grid__info">
+            <h2 class="card-grid__title">Мэйнкун</h2>
+            <button class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
+          </div>
+        </li>
+        <li class="card-grid__item">
+          <img src="./images/OXVX6251.JPG" alt="кот лежит и смотрит в камеру" class="card-grid__image">
+          <div class="card-grid__info">
+            <h2 class="card-grid__title">Мэйнкун</h2>
+            <button class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
+          </div>
+        </li>
+        <li class="card-grid__item">
+          <img src="./images/andrew-keymaster-DzN9jwiDZPg-unsplash.jpg" alt="Два кота спят на подушке"
+            class="card-grid__image">
+          <div class="card-grid__info">
+            <h2 class="card-grid__title">Котики</h2>
+            <button class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copyright">© 2021. Константин Антипин</p>
+  </footer>
+
+  <div class="popup">
+    <div class="popup__case">
+      <form class="popup__form" >
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input name="userName" type="text" value="Жак-Ив Кусто" class="popup__input popup__input_edit_name"
+          placeholder="Имя" minlength="2" maxlength="20" pattern="^[A-Za-zА-Яа-яЁё-0-9]+$" required>
+        <input name="userAbout" type="text" value="Исследователь океана" class="popup__input popup__input_edit_job"
+          placeholder="Профессия" minlength="2" pattern="^[A-Za-zА-Яа-яЁё-0-9]+$" maxlength="100" required>
+        <button type="submit" class="popup__button">Сохранить</button>
+      </form>
+      <button type="button" class="popup__esc-button"></button>
+    </div>
+  </div>
+<script src="./script.js"></script>
+</body>
+
+</html>
