@@ -26,5 +26,7 @@
   .popup__esc-button {
     right: 0;
     top: -50px;
+    width: 26px;
+    height: 26px;
   }
 }
