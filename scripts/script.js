@@ -2,27 +2,27 @@
 const initialCards = [
   {
     name: 'Йоркширский терьер',
-    link: './images/IMG_0665.JPG'
+    link: '../images/IMG_0665.JPG'
   },
   {
     name: 'Йоркширский терьер',
-    link: './images/IMG_0666.JPG'
+    link: '../images/IMG_0666.JPG'
   },
   {
     name: 'Йоркширский терьер',
-    link: './images/IMG_0667.JPG'
+    link: '../images/IMG_0667.JPG'
   },
   {
     name: 'Мэйнкун',
-    link: './images/IMG_7379.JPEG'
+    link: '../images/IMG_7379.JPEG'
   },
   {
     name: 'Мэйнкун',
-    link: './images/OXVX6251.JPG'
+    link: '../images/OXVX6251.JPG'
   },
   {
     name: 'Котики',
-    link: './images/andrew-keymaster-DzN9jwiDZPg-unsplash.jpg'
+    link: '../images/andrew-keymaster-DzN9jwiDZPg-unsplash.jpg'
   }
 ]; 
 
