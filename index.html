@@ -30,49 +30,6 @@
 
     <section class="cards-grid">
       <ul class="card-grid">
-        <li class="card-grid__item">
-          <img src="./images/IMG_0665.JPG" alt="ойр следит за солнечным зайчиком" class="card-grid__image">
-          <div class="card-grid__info">
-            <h2 class="card-grid__title">Йоркширский терьер</h2>
-            <button type="button" class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
-          </div>
-        </li>
-        <li class="card-grid__item">
-          <img src="./images/IMG_0666.JPG" alt="ойорк стоит на дорожке и смотрит в сторону" class="card-grid__image">
-          <div class="card-grid__info">
-            <h2 class="card-grid__title">Йоркширский терьер</h2>
-            <button type="button" class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
-          </div>
-        </li>
-        <li class="card-grid__item">
-          <img src="./images/IMG_0667.JPG" alt="ойрк грызет резиноывый мяч" class="card-grid__image">
-          <div class="card-grid__info">
-            <h2 class="card-grid__title">Йоркширский терьер</h2>
-            <button type="button" class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
-          </div>
-        </li>
-        <li class="card-grid__item">
-          <img src="./images/IMG_7379.JPEG" alt="котик спрятался в свернутом матрасе" class="card-grid__image">
-          <div class="card-grid__info">
-            <h2 class="card-grid__title">Мэйнкун</h2>
-            <button type="button" class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
-          </div>
-        </li>
-        <li class="card-grid__item">
-          <img src="./images/OXVX6251.JPG" alt="кот лежит и смотрит в камеру" class="card-grid__image">
-          <div class="card-grid__info">
-            <h2 class="card-grid__title">Мэйнкун</h2>
-            <button type="button" class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
-          </div>
-        </li>
-        <li class="card-grid__item">
-          <img src="./images/andrew-keymaster-DzN9jwiDZPg-unsplash.jpg" alt="Два кота спят на подушке"
-            class="card-grid__image">
-          <div class="card-grid__info">
-            <h2 class="card-grid__title">Котики</h2>
-            <button type="button" class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
-          </div>
-        </li>
       </ul>
     </section>
   </main>
@@ -86,15 +43,52 @@
       <form class="popup__form" name="popupForm">
         <h2 class="popup__title">Редактировать профиль</h2>
         <input name="userName" type="text" class="popup__input popup__input_edit_name"
-          placeholder="Имя" minlength="2" maxlength="20" pattern="^[A-Za-zА-Яа-яЁё-0-9]+$" required>
+          placeholder="Имя" minlength="2" maxlength="20"  required>
         <input name="userAbout" type="text" class="popup__input popup__input_edit_job"
-          placeholder="Профессия" minlength="2" pattern="^[A-Za-zА-Яа-яЁё-0-9]+$" maxlength="100" required>
+          placeholder="Профессия" minlength="2" maxlength="100" required>
         <button type="submit" class="popup__button">Сохранить</button>
       </form>
       <button type="button" class="popup__esc-button"></button>
     </div>
   </div>
-<script src="./scripts/script.js"></script>
+ 
+  <div class="popup popup_place_card">
+    <div class="popup__case">
+      <form class="popup__form" name="popupForm">
+        <h2 class="popup__title">Новое место</h2>
+        <input name="nameCard" type="text" class="popup__input popup__input_place_name"
+          placeholder="Название места" minlength="2" maxlength="20" required>
+        <input name="link"  type="text" class="popup__input popup__input_place_url"
+          placeholder="Ссылка на картинку">
+        <button type="submit" class="popup__button">Сохранить</button>
+      </form>
+      <button type="button" class="popup__esc-button popup__esc-button_card-add"></button>
+    </div>
+  </div>
+  
+  <div class="popup popup_zoom-image">
+    <div class="popup__figure-container">
+      <figure class="popup__figure">
+        <img class="popup__image">
+        <figcaption class="popup__caption"></figcaption>
+      </figure>
+      <button type="button" class="popup__esc-button popup__esc-button_zoom-image"></button>
+    </div>
+  </div>
+  
+  <template class="template">
+      <li class="card-grid__item">
+        <img class="card-grid__image">
+        <div class="card-grid__info">
+          <h2 class="card-grid__title"></h2>
+          <button type="button" class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
+        </div>
+        <button type="button" class="card-grid__remove"></button>
+      </li>
+  </template>
+
+  <script src="./scripts/script.js"></script>
+
 </body>
 
 </html>

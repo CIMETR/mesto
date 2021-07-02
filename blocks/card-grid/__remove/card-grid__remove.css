@@ -1,0 +1,21 @@
+.card-grid__remove {
+  padding: 0;
+  width: 22px;
+  height: 19px;
+  background-image: url(../../../images/remove.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  transition: .2s;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  outline: none;
+}
+
+.card-grid__remove:hover {
+  opacity: .6;
+  cursor: pointer;
+}
