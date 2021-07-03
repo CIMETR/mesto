@@ -2,27 +2,27 @@
 const initialCards = [
   {
     name: 'Йоркширский терьер',
-    link: '../images/IMG_0665.JPG'
+    link: './images/IMG_0665.JPG'
   },
   {
     name: 'Йоркширский терьер',
-    link: '../images/IMG_0666.JPG'
+    link: './images/IMG_0666.JPG'
   },
   {
     name: 'Йоркширский терьер',
-    link: '../images/IMG_0667.JPG'
+    link: './images/IMG_0667.JPG'
   },
   {
     name: 'Мэйнкун',
-    link: '../images/IMG_7379.JPEG'
+    link: './images/IMG_7379.JPEG'
   },
   {
     name: 'Мэйнкун',
-    link: '../images/OXVX6251.JPG'
+    link: './images/OXVX6251.JPG'
   },
   {
     name: 'Котики',
-    link: '../images/andrew-keymaster-DzN9jwiDZPg-unsplash.jpg'
+    link: './images/andrew-keymaster-DzN9jwiDZPg-unsplash.jpg'
   }
 ]; 
 
@@ -44,11 +44,13 @@ const popupZoomImage = document.querySelector('.popup_zoom-image')
 const imgPopupZoom = popupZoomImage.querySelector('.popup__image')
 const captionPopupZoom = popupZoomImage.querySelector('.popup__caption')
 const popupZoomImageClose = popupZoomImage.querySelector('.popup__esc-button_zoom-image')
+const placesTemplate = document.querySelector('.template').content;
+const placeCase = document.querySelector('.card-grid');
+const newNamePlace = popupElementAdd.querySelector('.popup__input_place_name');
+const newUrlImage = popupElementAdd.querySelector('.popup__input_place_url');
 
 const openPopup = function(selectPopup) {
   selectPopup.classList.add('popup__opened');
-  editName.value = profileName.textContent;
-  editJob.value = profileJob.textContent;
 }
 
 const closePopup = function(selectPopup) {
@@ -63,6 +65,7 @@ const closePopupByClickOnOverlay = function(event) {
   closePopup(popupElement);
 }
 
+//редактирование профля
 const addTextProfile = function(evt){
   evt.preventDefault()
   profileName.textContent = editName.value
@@ -71,41 +74,7 @@ const addTextProfile = function(evt){
   closePopup(popupElement)
 }
 
-const placesTemplate = document.querySelector('.template').content;
-const placeCase = document.querySelector('.card-grid');
-
-
-//zoom image
-
-
-//рисуем заготовленные карточки
-function getCard(name, link){
-  const createCards = placesTemplate.cloneNode(true);
-  createCards.querySelector('.card-grid__title').textContent = name;
-  const createImage = createCards.querySelector('.card-grid__image');
-  createImage.src = link
-  createImage.alt = name
-  
-  setEventListeners()
-  
-  return createCards;
-  function setEventListeners(){
-    createCards.querySelector('.card-grid__remove').addEventListener('click', cardDelete);
-    createCards.querySelector('.card-grid__like').addEventListener('click', cardLike);
-    createImage.addEventListener('click', () => {
-      handlePreviewImage(name, link)
-    });
-}
-}
-
-initialCards.forEach(function(el){
-  placeCase.append(getCard(el.name, el.link))
-});
-
-//сохраняем новую карточку
-const newNamePlace = popupElementAdd.querySelector('.popup__input_place_name');
-const newUrlImage = popupElementAdd.querySelector('.popup__input_place_url');
-
+//добавления новых карточек
 const addNewCard = function(evt){
   evt.preventDefault();
   const popupNamePlace = newNamePlace.value
@@ -136,7 +105,41 @@ function handlePreviewImage(name, link) {
   captionPopupZoom.textContent = name
 }
 
-popupOpenButtonElement.addEventListener('click', () => openPopup(popupElement));
+
+
+
+//рисуем заготовленные карточки
+function getCard(name, link){
+  const createCards = placesTemplate.cloneNode(true);
+  createCards.querySelector('.card-grid__title').textContent = name;
+  const createImage = createCards.querySelector('.card-grid__image');
+  createImage.src = link
+  createImage.alt = name
+  
+  
+  
+  setEventListeners()
+  
+  return createCards;
+  
+  function setEventListeners(){
+    createCards.querySelector('.card-grid__remove').addEventListener('click', cardDelete);
+    createCards.querySelector('.card-grid__like').addEventListener('click', cardLike);
+    createImage.addEventListener('click', () => {
+      handlePreviewImage(name, link)
+    });
+  }
+}
+
+initialCards.forEach(function(el){
+  placeCase.append(getCard(el.name, el.link))
+});
+
+popupOpenButtonElement.addEventListener('click', () => {
+  openPopup(popupElement)
+  editName.value = profileName.textContent,
+  editJob.value = profileJob.textContent
+});
 popupCloseButtonElement.addEventListener('click', () => closePopup(popupElement));
 popupElement.addEventListener('click', closePopupByClickOnOverlay);
 popupElement.addEventListener('submit', addTextProfile);
