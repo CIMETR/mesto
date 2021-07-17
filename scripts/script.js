@@ -49,20 +49,34 @@ const placeCase = document.querySelector('.card-grid');
 const newNamePlace = popupElementAdd.querySelector('.popup__input_place_name');
 const newUrlImage = popupElementAdd.querySelector('.popup__input_place_url');
 
-const openPopup = function(selectPopup) {
+
+const popupDarkBackground = document.querySelectorAll('.popup');
+popupDarkBackground.forEach((background) => { 
+  const currentPopup = background.closest('.popup'); 
+  background.addEventListener('mousedown', (event) => { 
+    if  (event.target !== event.currentTarget) { return } { 
+      currentPopup.classList.remove('popup__opened') 
+    } 
+  }) 
+})
+
+popupDarkBackground.forEach((pressKey) => { 
+  const currentPopup = pressKey.closest('.popup'); 
+  document.addEventListener('keyup', (evt) => { 
+    if  (evt.key === 'Escape') { 
+      currentPopup.classList.remove('popup__opened') 
+    } 
+  }) 
+})
+
+
+function openPopup(selectPopup) {
   selectPopup.classList.add('popup__opened');
+
 }
 
-const closePopup = function(selectPopup) {
+function closePopup(selectPopup) {
   selectPopup.classList.remove('popup__opened');
-}
-
-const closePopupByClickOnOverlay = function(event) {
-  if (event.target !== event.currentTarget) {
-    return
-  }
-
-  closePopup(popupElement);
 }
 
 //редактирование профля
@@ -80,9 +94,14 @@ const addNewCard = function(evt){
   const popupNamePlace = newNamePlace.value
   const popupImagePlace = newUrlImage.value
   placeCase.prepend(getCard(popupNamePlace, popupImagePlace));
-  closePopup(popupElementAdd)
+
   newNamePlace.value = "";
   newUrlImage.value = "";
+
+  popupElementAdd.querySelector('.popup__button').classList.add('popup__button_disabled');
+  popupElementAdd.querySelector('.popup__button').setAttribute('disabled', true);
+  
+  closePopup(popupElementAdd)
 }
 
 //Удаление
@@ -141,7 +160,6 @@ popupOpenButtonElement.addEventListener('click', () => {
   editJob.value = profileJob.textContent
 });
 popupCloseButtonElement.addEventListener('click', () => closePopup(popupElement));
-popupElement.addEventListener('click', closePopupByClickOnOverlay);
 popupElement.addEventListener('submit', addTextProfile);
 popupOpenCardAddElement.addEventListener('click', () => openPopup(popupElementAdd));
 popupCloseAddElement.addEventListener('click', () => closePopup(popupElementAdd));

@@ -40,12 +40,14 @@
 
   <div class="popup">
     <div class="popup__case">
-      <form class="popup__form" name="popupForm">
+      <form class="popup__form" name="popupForm" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input name="userName" type="text" class="popup__input popup__input_edit_name"
+        <input name="userName" type="text" class="popup__input popup__input_edit_name" id="sign-in-name"
           placeholder="Имя" minlength="2" maxlength="20"  required>
-        <input name="userAbout" type="text" class="popup__input popup__input_edit_job"
+        <span class="popup__input-error " id="sign-in-name-error"></span>
+        <input name="userAbout" type="text" class="popup__input popup__input_edit_job" id="sign-in-job"
           placeholder="Профессия" minlength="2" maxlength="100" required>
+        <span class="popup__input-error " id="sign-in-job-error"></span>
         <button type="submit" class="popup__button">Сохранить</button>
       </form>
       <button type="button" class="popup__esc-button"></button>
@@ -54,12 +56,14 @@
  
   <div class="popup popup_place_card">
     <div class="popup__case">
-      <form class="popup__form" name="popupForm">
+      <form class="popup__form" name="popupForm" novalidate>
         <h2 class="popup__title">Новое место</h2>
-        <input name="nameCard" type="text" class="popup__input popup__input_place_name"
+        <input name="nameCard" type="text" class="popup__input popup__input_place_name" id="sign-in-placename"
           placeholder="Название места" minlength="2" maxlength="20" required>
-        <input name="link"  type="url" class="popup__input popup__input_place_url"
+        <span class="popup__input-error" id="sign-in-placename-error"></span>
+        <input name="link"  type="url" class="popup__input popup__input_place_url" id="sign-in-url"
           placeholder="Ссылка на картинку">
+        <span class="popup__input-error" id="sign-in-url-error"></span>
         <button type="submit" class="popup__button">Сохранить</button>
       </form>
       <button type="button" class="popup__esc-button popup__esc-button_card-add"></button>
@@ -86,9 +90,9 @@
         <button type="button" class="card-grid__remove"></button>
       </li>
   </template>
-
+  
   <script src="./scripts/script.js"></script>
-
+  <script src="./scripts/validation.js"></script>
 </body>
 
 </html>
