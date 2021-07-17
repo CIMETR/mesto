@@ -42,13 +42,13 @@
     <div class="popup__case">
       <form class="popup__form" name="popupForm" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input name="userName" type="text" class="popup__input popup__input_edit_name" id="sign-in-name"
+        <input name="userName" type="text" class="popup__item popup__item_edit_name" id="sign-in-name"
           placeholder="Имя" minlength="2" maxlength="20"  required>
         <span class="popup__input-error " id="sign-in-name-error"></span>
-        <input name="userAbout" type="text" class="popup__input popup__input_edit_job" id="sign-in-job"
+        <input name="userAbout" type="text" class="popup__item popup__item_edit_job" id="sign-in-job"
           placeholder="Профессия" minlength="2" maxlength="100" required>
         <span class="popup__input-error " id="sign-in-job-error"></span>
-        <button type="submit" class="popup__button">Сохранить</button>
+        <button type="submit" class="popup__submit-button">Сохранить</button>
       </form>
       <button type="button" class="popup__esc-button"></button>
     </div>
@@ -58,13 +58,13 @@
     <div class="popup__case">
       <form class="popup__form" name="popupForm" novalidate>
         <h2 class="popup__title">Новое место</h2>
-        <input name="nameCard" type="text" class="popup__input popup__input_place_name" id="sign-in-placename"
+        <input name="nameCard" type="text" class="popup__item popup__item_place_name" id="sign-in-placename"
           placeholder="Название места" minlength="2" maxlength="20" required>
         <span class="popup__input-error" id="sign-in-placename-error"></span>
-        <input name="link"  type="url" class="popup__input popup__input_place_url" id="sign-in-url"
-          placeholder="Ссылка на картинку">
+        <input name="link"  type="url" class="popup__item popup__item_place_url" id="sign-in-url"
+          placeholder="Ссылка на картинку" pattern="https://.*" required>
         <span class="popup__input-error" id="sign-in-url-error"></span>
-        <button type="submit" class="popup__button">Сохранить</button>
+        <button type="submit" class="popup__submit-button">Сохранить</button>
       </form>
       <button type="button" class="popup__esc-button popup__esc-button_card-add"></button>
     </div>
@@ -73,7 +73,7 @@
   <div class="popup popup_zoom-image">
     <div class="popup__figure-container">
       <figure class="popup__figure">
-        <img class="popup__image" alt="#">
+        <img class="popup__image" alt="#" src="#">
         <figcaption class="popup__caption"></figcaption>
       </figure>
       <button type="button" class="popup__esc-button popup__esc-button_zoom-image"></button>

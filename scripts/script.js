@@ -29,25 +29,25 @@ const initialCards = [
 
 const popupElement = document.querySelector('.popup')
 const popupElementAdd = document.querySelector('.popup_place_card')
-const popupSaveButtonElement = popupElement.querySelector('.popup__button')
+const popupSaveButtonElement = popupElement.querySelector('.popup__submit-button')
 const popupCloseButtonElement = popupElement.querySelector('.popup__esc-button')
-const editName = popupElement.querySelector('.popup__input_edit_name')
-const editJob = popupElement.querySelector('.popup__input_edit_job')
+const editName = popupElement.querySelector('.popup__item_edit_name')
+const editJob = popupElement.querySelector('.popup__item_edit_job')
 const profile = document.querySelector('.profile')
 const profileName = profile.querySelector('.profile__title')
 const profileJob = profile.querySelector('.profile__job')
 const popupOpenButtonElement = profile.querySelector('.profile__button_type_edit')
 const popupOpenCardAddElement = profile.querySelector('.profile__button_type_add')
 const popupCloseAddElement = popupElementAdd.querySelector('.popup__esc-button_card-add')
-const popupSaveAddElement = popupElementAdd.querySelector('.popup__button')
+const popupSaveAddElement = popupElementAdd.querySelector('.popup__submit-button')
 const popupZoomImage = document.querySelector('.popup_zoom-image')
 const imgPopupZoom = popupZoomImage.querySelector('.popup__image')
 const captionPopupZoom = popupZoomImage.querySelector('.popup__caption')
 const popupZoomImageClose = popupZoomImage.querySelector('.popup__esc-button_zoom-image')
 const placesTemplate = document.querySelector('.template').content;
 const placeCase = document.querySelector('.card-grid');
-const newNamePlace = popupElementAdd.querySelector('.popup__input_place_name');
-const newUrlImage = popupElementAdd.querySelector('.popup__input_place_url');
+const newNamePlace = popupElementAdd.querySelector('.popup__item_place_name');
+const newUrlImage = popupElementAdd.querySelector('.popup__item_place_url');
 
 
 const popupDarkBackground = document.querySelectorAll('.popup');
@@ -79,6 +79,8 @@ function closePopup(selectPopup) {
   selectPopup.classList.remove('popup__opened');
 }
 
+
+
 //редактирование профля
 const addTextProfile = function(evt){
   evt.preventDefault()
@@ -98,8 +100,9 @@ const addNewCard = function(evt){
   newNamePlace.value = "";
   newUrlImage.value = "";
 
-  popupElementAdd.querySelector('.popup__button').classList.add('popup__button_disabled');
-  popupElementAdd.querySelector('.popup__button').setAttribute('disabled', true);
+  popupElementAdd.querySelector('.popup__submit-button').classList.add('popup__submit-button_disabled');
+  popupElementAdd.querySelector('.popup__submit-button').setAttribute('disabled', true);
+
   
   closePopup(popupElementAdd)
 }
@@ -162,6 +165,10 @@ popupOpenButtonElement.addEventListener('click', () => {
 popupCloseButtonElement.addEventListener('click', () => closePopup(popupElement));
 popupElement.addEventListener('submit', addTextProfile);
 popupOpenCardAddElement.addEventListener('click', () => openPopup(popupElementAdd));
-popupCloseAddElement.addEventListener('click', () => closePopup(popupElementAdd));
+popupCloseAddElement.addEventListener('click', () => {
+  closePopup(popupElementAdd)
+  newNamePlace.value = "";
+  newUrlImage.value = "";
+});
 popupElementAdd.addEventListener('submit', addNewCard);
 popupZoomImageClose.addEventListener('click', () => closePopup(popupZoomImage))
