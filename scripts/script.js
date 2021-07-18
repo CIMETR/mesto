@@ -27,16 +27,16 @@ const initialCards = [
 ]; 
 
 
-const popupElement = document.querySelector('.popup')
+const popupElementProfile = document.querySelector('.popup_place_profile')
 const popupElementAdd = document.querySelector('.popup_place_card')
-const popupSaveButtonElement = popupElement.querySelector('.popup__submit-button')
-const popupCloseButtonElement = popupElement.querySelector('.popup__esc-button')
-const editName = popupElement.querySelector('.popup__item_edit_name')
-const editJob = popupElement.querySelector('.popup__item_edit_job')
+const popupProfileSaveButtonElement = popupElementProfile.querySelector('.popup__submit-button')
+const popupProfileCloseButtonElement = popupElementProfile.querySelector('.popup__esc-button')
+const editName = popupElementProfile.querySelector('.popup__item_edit_name')
+const editJob = popupElementProfile.querySelector('.popup__item_edit_job')
 const profile = document.querySelector('.profile')
 const profileName = profile.querySelector('.profile__title')
 const profileJob = profile.querySelector('.profile__job')
-const popupOpenButtonElement = profile.querySelector('.profile__button_type_edit')
+const popupOpenButtonProfileElement = profile.querySelector('.profile__button_type_edit')
 const popupOpenCardAddElement = profile.querySelector('.profile__button_type_add')
 const popupCloseAddElement = popupElementAdd.querySelector('.popup__esc-button_card-add')
 const popupSaveAddElement = popupElementAdd.querySelector('.popup__submit-button')
@@ -50,33 +50,31 @@ const newNamePlace = popupElementAdd.querySelector('.popup__item_place_name');
 const newUrlImage = popupElementAdd.querySelector('.popup__item_place_url');
 
 
-const popupDarkBackground = document.querySelectorAll('.popup');
-popupDarkBackground.forEach((background) => { 
-  const currentPopup = background.closest('.popup'); 
-  background.addEventListener('mousedown', (event) => { 
-    if  (event.target !== event.currentTarget) { return } { 
-      currentPopup.classList.remove('popup__opened') 
-    } 
-  }) 
-})
+function closePopupOverlay(evt) {
+  if(evt.target === evt.currentTarget){
+    const activePopup = document.querySelector('.popup_opened');
+    closePopup(activePopup)
+  }
+}
 
-popupDarkBackground.forEach((pressKey) => { 
-  const currentPopup = pressKey.closest('.popup'); 
-  document.addEventListener('keyup', (evt) => { 
-    if  (evt.key === 'Escape') { 
-      currentPopup.classList.remove('popup__opened') 
-    } 
-  }) 
-})
+function closeEscapePopup(evt) {
+  if(evt.key === 'Escape'){
+    const activePopup = document.querySelector('.popup_opened');
+    closePopup(activePopup)
+  }
+}
 
 
 function openPopup(selectPopup) {
-  selectPopup.classList.add('popup__opened');
-
+  selectPopup.classList.add('popup_opened');
+  document.addEventListener('keyup', closeEscapePopup)
+  selectPopup.addEventListener('mousedown', closePopupOverlay)
 }
 
 function closePopup(selectPopup) {
-  selectPopup.classList.remove('popup__opened');
+  selectPopup.classList.remove('popup_opened');
+  document.removeEventListener('keyup', closeEscapePopup)
+  selectPopup.removeEventListener('mousedown', closePopupOverlay)
 }
 
 
@@ -87,7 +85,7 @@ const addTextProfile = function(evt){
   profileName.textContent = editName.value
   profileJob.textContent = editJob.value
 
-  closePopup(popupElement)
+  closePopup(popupElementProfile)
 }
 
 //добавления новых карточек
@@ -100,8 +98,8 @@ const addNewCard = function(evt){
   newNamePlace.value = "";
   newUrlImage.value = "";
 
-  popupElementAdd.querySelector('.popup__submit-button').classList.add('popup__submit-button_disabled');
-  popupElementAdd.querySelector('.popup__submit-button').setAttribute('disabled', true);
+  popupSaveAddElement.classList.add('popup__submit-button_disabled');
+  popupSaveAddElement.setAttribute('disabled', true);
 
   
   closePopup(popupElementAdd)
@@ -157,18 +155,14 @@ initialCards.forEach(function(el){
   placeCase.append(getCard(el.name, el.link))
 });
 
-popupOpenButtonElement.addEventListener('click', () => {
-  openPopup(popupElement)
+popupOpenButtonProfileElement.addEventListener('click', () => {
+  openPopup(popupElementProfile)
   editName.value = profileName.textContent,
   editJob.value = profileJob.textContent
 });
-popupCloseButtonElement.addEventListener('click', () => closePopup(popupElement));
-popupElement.addEventListener('submit', addTextProfile);
+popupProfileCloseButtonElement.addEventListener('click', () => closePopup(popupElementProfile));
+popupElementProfile.addEventListener('submit', addTextProfile);
 popupOpenCardAddElement.addEventListener('click', () => openPopup(popupElementAdd));
-popupCloseAddElement.addEventListener('click', () => {
-  closePopup(popupElementAdd)
-  newNamePlace.value = "";
-  newUrlImage.value = "";
-});
+popupCloseAddElement.addEventListener('click', () => closePopup(popupElementAdd));
 popupElementAdd.addEventListener('submit', addNewCard);
 popupZoomImageClose.addEventListener('click', () => closePopup(popupZoomImage))
