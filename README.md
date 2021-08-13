@@ -10,6 +10,7 @@
 * CSS 
 * BEM
 * JavaScript
+* ООП
 
 ---
 
