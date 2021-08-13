@@ -20,14 +20,14 @@ export class Card {
   }
 
   //зум изображения
-  _handlePreviewImage(name, link) {
+  _handlePreviewImage() {
     this._popupZoomImage = document.querySelector('.popup_zoom-image')
     this._imgPopupZoom = this._popupZoomImage.querySelector('.popup__image')
     this._captionPopupZoom = this._popupZoomImage.querySelector('.popup__caption')
     openPopup(this._popupZoomImage)
-    this._imgPopupZoom.src = link
-    this._imgPopupZoom.alt = name
-    this._captionPopupZoom.textContent = name
+    this._imgPopupZoom.src = this._link
+    this._imgPopupZoom.alt = this._name
+    this._captionPopupZoom.textContent = this._name
   }
 
 
@@ -41,7 +41,7 @@ export class Card {
     });
 
     this._element.querySelector('.card-grid__image').addEventListener('click', () => {
-      this._handlePreviewImage(this._name, this._link)
+      this._handlePreviewImage()
     });
   }
 

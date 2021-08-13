@@ -31,9 +31,9 @@ export class FormValidator{
     formError.textContent = '';
   };
 
-  _hasInvalidInput(inputList) {
+  _hasInvalidInput() {
     // проходим по этому массиву методом some
-    return inputList.some((inputElement) => {
+    return this._inputList.some((inputElement) => {
     // Если поле не валидно, колбэк вернёт true
       return !inputElement.validity.valid;
     })
