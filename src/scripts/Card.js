@@ -33,17 +33,13 @@ export class Card {
   }
 
   //рисуем заготовленные карточки
-  
-  
   _getCard(){
     this._createCards = document.querySelector(this._templateSelector).content;
     return this._createCards.querySelector('.card-grid__item').cloneNode(true);
   }
   generateCard(){
     this._element = this._getCard();
-
     
-
     this._element.querySelector('.card-grid__title').textContent = this._name;
     this._createImage = this._element.querySelector('.card-grid__image');
     this._createImage.src = this._link
