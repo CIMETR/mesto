@@ -1,11 +1,11 @@
-import {Card} from "../scripts/Card.js";
-import {FormValidator} from "../scripts/FormValidator.js";
-import {Section} from '../scripts/Section.js';
-import PopupWithForm from '../scripts/PopupWithForm';
-import PopupWithImage from '../scripts/PopupWithImage';
-import UserInfo from '../scripts/UserInfo.js'
-import Api from '../scripts/Api.js'
-import PopupWithConfirm from "../scripts/PopupWithConfirm.js";
+import {Card} from "../components/Card.js";
+import {FormValidator} from "../components/FormValidator.js";
+import {Section} from '../components/Section.js';
+import PopupWithForm from '../components/PopupWithForm';
+import PopupWithImage from '../components/PopupWithImage';
+import UserInfo from '../components/UserInfo.js'
+import Api from '../components/Api.js'
+import PopupWithConfirm from "../components/PopupWithConfirm.js";
 import {
   popupElementProfile,
   popupElementAdd,
@@ -74,13 +74,13 @@ const popupViewEditor = new PopupWithForm('.popup_place_profile', inputValuesObj
 popupViewEditor.setEventListeners()
 
 popupOpenButtonProfileElement.addEventListener('click', () => {
-  profileEditFormValidator.resetValidation()
+  
   const userData = newUser.getUserInfo()
 
   editName.value = userData.name;
   editJob.value = userData.job;
 
-  profileEditFormValidator.enableValidation()
+  profileEditFormValidator.resetValidation()
 
   popupViewEditor.open()
 })
