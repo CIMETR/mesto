@@ -14,7 +14,10 @@
 
   <main class="content">
     <section class="profile">
-      <img src="<%=require('./images/image.jpg')%>" alt="жак ив кусто" class="profile__logo">
+      <div class="profile__avatar-wrap">
+        <img src="#" alt="жак ив кусто" class="profile__logo">
+        <button type="button" class="profile__avatar-edit-button"></button>
+      </div>
       <div class="profile__info">
         <div class="profile__info-name">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -79,12 +82,37 @@
     </div>
   </div>
   
+  <div class="popup popup_confirm-delete">
+    <div class="popup__case">
+      <form class="popup__form">
+        <h2 class="popup__title">Вы уверены?</h2>
+        <button type="submit" class="popup__submit-button">Да</button>
+      </form>
+      <button class="popup__esc-button popup__esc-button_confirm-delete" type="button"></button>
+  </div>
+  </div>
+
+  <div class="popup popup_place_avatar">
+    <div class="popup__case">
+      <form class="popup__form" novalidate>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <input type="url" class="popup__item popup__item_place_avatar" name="avatar" id="avatar" placeholder="Ссылка на аватар" required>
+        <span class="popup__input-error" id="avatar-error"></span>
+        <button type="submit" class="popup__submit-button">Сохранить</button>
+      </form>  
+      <button class="popup__esc-button popup__esc-button_edit-avatar" type="button"></button>
+    </div>
+  </div>
+
   <template class="template">
       <li class="card-grid__item">
         <img class="card-grid__image">
         <div class="card-grid__info">
           <h2 class="card-grid__title"></h2>
-          <button type="button" class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
+          <div class="card-grid__like-container">
+            <button type="button" class="card-grid__like" title="Оценить фотографию" aria-label="Оценить фотографию"></button>
+            <span class="card-grid__like-count">0</span>
+          </div>
         </div>
         <button type="button" class="card-grid__remove"></button>
       </li>

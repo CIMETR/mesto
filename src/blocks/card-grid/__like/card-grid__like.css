@@ -8,9 +8,9 @@
   transition: .8s;
   width: 22px;
   cursor: pointer;
-  box-sizing: border-box;
+ 
 }
 
-.card-grid__like:hover{
+.card-grid__like:hover{ 
   opacity: 0.5;
 }

@@ -43,6 +43,12 @@ const popupOpenCardAddElement = profile.querySelector('.profile__button_type_add
 const placeCase = document.querySelector('.card-grid');
 const titleProfile = profile.querySelector('.profile__title')
 const jobProfile = profile.querySelector('.profile__job')
+const avatarSelector = document.querySelector('.profile__logo')
+const avatarPopup = document.querySelector('.popup_place_avatar')
+const avatarSubmitButton = avatarPopup.querySelector('.popup__submit-button')
+const avatarEditButton = profile.querySelector('.profile__avatar-edit-button')
+const popupConfirm = document.querySelector('.popup_confirm-delete')
+const newTemplate = document.querySelector('.template')
 
 //Селекторы для запуска валидности инпутов
 const selectors = {
@@ -65,4 +71,10 @@ export {
   selectors,
   titleProfile,
   jobProfile,
+  avatarSelector,
+  avatarPopup,
+  avatarSubmitButton,
+  avatarEditButton,
+  popupConfirm,
+  newTemplate
 }
